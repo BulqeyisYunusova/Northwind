@@ -40,5 +40,19 @@ public DataResult <List<Product>> getAll(){
 	public DataResult<Product> getByProductName(@RequestParam String productName){
 		return this.productService.getByProductName(productName);
 	}
+	@GetMapping("/getByProductNameAndCagetory")
+	public DataResult<Product>  getByProductNameAndCagetory(@RequestParam("productName") String productName, @RequestParam("categoryId") int categoryId){
+		System.out.println(productName);
+		System.out.println(categoryId);
+		return this.productService.getByProductNameAndCagetory(productName, categoryId);
+	}
+	
+	@GetMapping("/getByProductNameContains")
+	DataResult<Product>  getByProductNameContains(String productName){
+		return this.productService.getByProductNameContains(productName);
+		
+	}
+	
+	
 	
 }
